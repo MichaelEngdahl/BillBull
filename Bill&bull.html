@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bra sa Bill, Skit bra sa Bull></title>
+</head>
+<body>
+<style>
+  /* Yes I know... but it's such small application  */
+  body {
+    background-color: #50808E;
+    color: #333
+  }
+  p {
+    width: 90%;
+    margin: auto;
+    font-size: 40px
+  }
+  button {
+    display: block;
+    border: none;
+    padding: 1rem 2rem;
+    margin: 50px auto;
+    background:  #69A297;
+    color: #333333;
+    font-size: 4rem;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out, 
+                transform 150ms ease;
+}
+
+button:hover,
+button:focus {
+    background: #A3C9A8;
+}
+
+button:focus {
+    outline: 1px solid #a19d89;
+    outline-offset: -4px;
+}
+
+button:active {
+    transform: scale(0.80);
+}
+  
+</style>
+<button id="pushy">Push Me</button>
+<p></p>
+
+<script>  
+  const button = document.querySelector('#pushy')
+  button.addEventListener('click', billbull)
+
+  const element = document.querySelector('p')
+  const printer = (print) => {
+    element.innerHTML += print
+  }
+
+  function billbull() {
+    for(let i = 1; i <= 100; i++) {
+      setTimeout(() => {
+        if((i % 3) === 0 && (i % 5 === 0)) {
+          printer(' BillBull ')
+        }else if((i % 3) === 0) {
+          printer(' Bill ')
+        }else if((i % 5) === 0) {
+          printer(' Bull ')
+        }else {
+          printer(`${i} `)
+        }
+      }, 100 * i)   
+    }
+  }
+</script>
+</body>
+</html>
